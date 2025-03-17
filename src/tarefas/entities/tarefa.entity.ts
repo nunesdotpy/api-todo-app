@@ -1,4 +1,3 @@
-import { min } from 'rxjs';
 import { DataTypes } from 'sequelize';
 import { Column, Model, Table } from 'sequelize-typescript';
 
