@@ -12,6 +12,11 @@ export class TarefasController {
     return this.tarefasService.create(createTarefaDto);
   }
 
+  @Post('tag')
+  addTagToTarefa(@Body() body: { tarefaId: number, tagId: number }) {
+    return this.tarefasService.addTagToTarefa(body.tarefaId, body.tagId);
+  }
+
   @Get()
   findAll() {
     return this.tarefasService.findAll();

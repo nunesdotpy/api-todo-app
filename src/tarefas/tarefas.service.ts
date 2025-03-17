@@ -3,6 +3,7 @@ import { Tarefa } from './entities/tarefa.entity';
 import { CreateTarefaDto } from './dto/create-tarefa.dto';
 import { UpdateTarefaDto } from './dto/update-tarefa.dto';
 import { TagsService } from 'src/tags/tags.service';
+import { Tag } from 'src/tags/entities/tag.entity';
 
 @Injectable()
 export class TarefasService {
@@ -25,13 +26,30 @@ export class TarefasService {
     return response;
   }
 
+  async addTagToTarefa(tarefaId: number, tagId: number) {
+    const tarefa = await this.tarefasRepository.findOne<Tarefa>({
+      where: { id: tarefaId },
+    });
+
+    const tag = await this.tagsService.findOne(tagId);
+
+    if (!tarefa || !tag) {
+      return;
+    }
+
+    await tarefa.$add('tag', tag);
+
+    return tarefa;
+  }
+
   async findAll() {
-    return await this.tarefasRepository.findAll<Tarefa>();
+    return await this.tarefasRepository.findAll<Tarefa>({ include: [Tag] });
   }
 
   async findOne(id: number) {
     return await this.tarefasRepository.findOne<Tarefa>({
       where: { id },
+      include: [Tag],
     });
   }
 

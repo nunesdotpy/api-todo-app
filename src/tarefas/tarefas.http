@@ -1,23 +1,32 @@
-### GET testConnection
+### Cria tarefa
 POST http://localhost:3000/tarefas/create
 Content-Type: application/json
 
 {
-    "titulo": "teste com tags",
+    "titulo": "teste com tags 4",
     "descricao": "Teste",
     "status": 0,
     "prioridade": 10,
-    "tags": [1,2]
+    "tags": [4,5]
+}
+
+### Adiciona tag a tarefa
+POST http://localhost:3000/tarefas/tag
+Content-Type: application/json
+
+{
+    "tarefaId": 12,
+    "tagId": 1
 }
 
 ### Todas as tarefas
 GET http://localhost:3000/tarefas
 
 ### Tarefa por ID
-GET http://localhost:3000/tarefas/1
+GET http://localhost:3000/tarefas/11
 
 ### Atualizar tarefa
-PATCH http://localhost:3000/tarefas/1
+PATCH http://localhost:3000/tarefas/11
 Content-Type: application/json
 
 {
@@ -28,4 +37,4 @@ Content-Type: application/json
 }
 
 ### Deletar tarefa
-DELETE http://localhost:3000/tarefas/3
+DELETE http://localhost:3000/tarefas/12
