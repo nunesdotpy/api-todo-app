@@ -1,0 +1,30 @@
+### GET testConnection
+POST http://localhost:3000/tarefas/create
+Content-Type: application/json
+
+{
+    "titulo": "Teste",
+    "descricao": "Teste",
+    "status": 0,
+    "prioridade": 10
+}
+
+### Todas as tarefas
+GET http://localhost:3000/tarefas
+
+### Tarefa por ID
+GET http://localhost:3000/tarefas/1
+
+### Atualizar tarefa
+PATCH http://localhost:3000/tarefas/1
+Content-Type: application/json
+
+{
+    "titulo": "Teste2",
+    "descricao": "Teste",
+    "status": 0,
+    "prioridade": 10
+}
+
+### Deletar tarefa
+DELETE http://localhost:3000/tarefas/3
