@@ -3,10 +3,11 @@ POST http://localhost:3000/tarefas/create
 Content-Type: application/json
 
 {
-    "titulo": "Teste",
+    "titulo": "teste com tags",
     "descricao": "Teste",
     "status": 0,
-    "prioridade": 10
+    "prioridade": 10,
+    "tags": [1,2]
 }
 
 ### Todas as tarefas

@@ -3,4 +3,5 @@ export class CreateTarefaDto {
   status: number;
   prioridade: number;
   descricao: string;
+  tags: number[];
 }

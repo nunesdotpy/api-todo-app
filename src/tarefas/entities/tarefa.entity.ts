@@ -1,5 +1,7 @@
 import { DataTypes } from 'sequelize';
-import { Column, Model, Table } from 'sequelize-typescript';
+import { BelongsToMany, Column, Model, Table } from 'sequelize-typescript';
+import { TarefaTag } from 'src/shared/entities/tarefa-tags.entity';
+import { Tag } from 'src/tags/entities/tag.entity';
 
 @Table
 export class Tarefa extends Model {
@@ -30,4 +32,7 @@ export class Tarefa extends Model {
     allowNull: true,
   })
   descricao: string;
+
+  @BelongsToMany(() => Tag, () => TarefaTag)
+  tags: Tag[];
 }

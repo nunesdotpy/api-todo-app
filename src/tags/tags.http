@@ -1,0 +1,26 @@
+### POST criar tag
+POST http://localhost:3000/tags/create
+Content-Type: application/json
+
+{
+    "nome": "tag2",
+    "cor": "#000000"
+}
+
+### GET todas as tags
+GET http://localhost:3000/tags
+
+### GET tag por id
+GET http://localhost:3000/tags/3
+
+### PUT atualizar tag
+PATCH http://localhost:3000/tags/3
+Content-Type: application/json
+
+{
+    "nome": "tag3",
+    "cor": "#000000"
+}
+
+### DELETE deletar tag
+DELETE http://localhost:3000/tags/3
