@@ -3,7 +3,7 @@ POST http://localhost:3000/tags/create
 Content-Type: application/json
 
 {
-    "nome": "tag2",
+    "nome": "tag3",
     "cor": "#000000"
 }
 
@@ -12,6 +12,17 @@ GET http://localhost:3000/tags
 
 ### GET tag por id
 GET http://localhost:3000/tags/3
+
+### filtrar tags por nome
+GET http://localhost:3000/tags/tarefa/11
+
+### filtrar tarefas por tags
+POST http://localhost:3000/tags/tarefa
+Content-Type: application/json
+
+{
+    "tagIds": [1, 2]
+}
 
 ### PUT atualizar tag
 PATCH http://localhost:3000/tags/3

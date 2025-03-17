@@ -21,6 +21,16 @@ export class TagsController {
   findOne(@Param('id') id: string) {
     return this.tagsService.findOne(+id);
   }
+  
+  @Get('tarefa/:id')
+  filterByTarefaId(@Param('id') tarefaId: number) {
+    return this.tagsService.filterByTarefaId(tarefaId);
+  }
+
+  @Post('tarefa')
+  filterByTagIds(@Body() body: { tagIds: number[] }) {
+    return this.tagsService.filterByTagIds(body.tagIds);
+  }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTagDto: UpdateTagDto) {
